@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot Test 1`] = `
+exports[`Unit Test 1`] = `
 {
   "Parameters": {
     "BootstrapVersion": {
@@ -11,7 +11,7 @@ exports[`Snapshot Test 1`] = `
   },
   "Resources": {
     "DataStoreConstructItemTableAF46E9D4": {
-      "DeletionPolicy": "Retain",
+      "DeletionPolicy": "Delete",
       "Properties": {
         "AttributeDefinitions": [
           {
@@ -27,7 +27,7 @@ exports[`Snapshot Test 1`] = `
         "ContributorInsightsSpecification": {
           "Enabled": true,
         },
-        "DeletionProtectionEnabled": true,
+        "DeletionProtectionEnabled": false,
         "KeySchema": [
           {
             "AttributeName": "id",
@@ -46,7 +46,7 @@ exports[`Snapshot Test 1`] = `
         },
       },
       "Type": "AWS::DynamoDB::Table",
-      "UpdateReplacePolicy": "Retain",
+      "UpdateReplacePolicy": "Delete",
     },
     "LambdaConstructgetItem3754D7A4": {
       "DependsOn": [
@@ -55,7 +55,7 @@ exports[`Snapshot Test 1`] = `
       ],
       "Properties": {
         "Code": {
-          "S3Bucket": "cdk-hnb659fds-assets-729929860662-ap-northeast-1",
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-northeast-1",
           "S3Key": "87ebf52a9d89d33ff0abe149330d745acbea71479a8f583429e80aa3beedb246.zip",
         },
         "Environment": {
@@ -181,7 +181,7 @@ exports[`Snapshot Test 1`] = `
       ],
       "Properties": {
         "Code": {
-          "S3Bucket": "cdk-hnb659fds-assets-729929860662-ap-northeast-1",
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-northeast-1",
           "S3Key": "ded7091e9742825848513aeb3d7efa3bf2cb1c486e265c50ae6d382a38ad3241.zip",
         },
         "Environment": {
@@ -238,7 +238,7 @@ exports[`Snapshot Test 1`] = `
       ],
       "Properties": {
         "Code": {
-          "S3Bucket": "cdk-hnb659fds-assets-729929860662-ap-northeast-1",
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-northeast-1",
           "S3Key": "d70d38c8c5b6efad0a57f47012ece60ddcdfca00204b566a2e58075e6a42b556.zip",
         },
         "Environment": {
@@ -363,7 +363,7 @@ exports[`Snapshot Test 1`] = `
       ],
       "Properties": {
         "Code": {
-          "S3Bucket": "cdk-hnb659fds-assets-729929860662-ap-northeast-1",
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-northeast-1",
           "S3Key": "490adb0aa0e73f1372694cc2948e1692119e2771ae808a7a2fa65638811d28e3.zip",
         },
         "Environment": {
@@ -488,7 +488,7 @@ exports[`Snapshot Test 1`] = `
       ],
       "Properties": {
         "Code": {
-          "S3Bucket": "cdk-hnb659fds-assets-729929860662-ap-northeast-1",
+          "S3Bucket": "cdk-hnb659fds-assets-123456789012-ap-northeast-1",
           "S3Key": "5fa1330271b8967d9254ba2d4a07144f8acefe8b77e6d6bba38261373a50d5f8.zip",
         },
         "Handler": "index.handler",
