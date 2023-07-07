@@ -1,21 +1,42 @@
-#!/usr/bin/env node
-import 'source-map-support/register';
-import * as cdk from 'aws-cdk-lib';
-import { CdkBestDesign2023Stack } from '../lib/cdk-best-design-2023-stack';
+import * as cdk from "aws-cdk-lib";
+import {
+  CdkBestDesign2023Stack,
+  // CdkBestDesign2023Stack as DevCdkBestDesign2023Stack,
+  // CdkBestDesign2023Stack as PrdCdkBestDesign2023Stack,
+} from "../lib/stack/cdk-best-design-2023-stack";
 
+import { devParameter, prdParameter, AppParameter } from "./parameter";
 const app = new cdk.App();
-new CdkBestDesign2023Stack(app, 'CdkBestDesign2023Stack', {
-  /* If you don't specify 'env', this stack will be environment-agnostic.
-   * Account/Region-dependent features and context lookups will not work,
-   * but a single synthesized template can be deployed anywhere. */
 
-  /* Uncomment the next line to specialize this stack for the AWS Account
-   * and Region that are implied by the current CLI configuration. */
-  // env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
+// Dynamic ID Pattern
+const argContext = "environment";
+const envKey = app.node.tryGetContext(argContext);
+const parameters = [devParameter, prdParameter];
+const appParameter: AppParameter = parameters.filter(
+  (obj: AppParameter) => obj.envName === envKey
+)[0];
 
-  /* Uncomment the next line if you know exactly what Account and Region you
-   * want to deploy the stack to. */
-  // env: { account: '123456789012', region: 'us-east-1' },
+new CdkBestDesign2023Stack(
+  app,
+  `${appParameter.envName}CdkBestDesign2023Stack`,
+  {
+    ...appParameter,
+  }
+);
 
-  /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
-});
+// Static ID Pattern 1:
+// new CdkBestDesign2023Stack(app, `DevCdkBestDesign2023Stack`, {
+//   ...devParameter,
+// });
+// new CdkBestDesign2023Stack(app, `PrdCdkBestDesign2023Stack`, {
+//   ...prdParameter,
+// });
+
+// // Static ID Pattern 2:
+// new DevCdkBestDesign2023Stack(app, `DevCdkBestDesign2023Stack`, {
+//   ...devParameter,
+// });
+
+// new PrdCdkBestDesign2023Stack(app, `PrdCdkBestDesign2023Stack`, {
+//   ...prdParameter,
+// });

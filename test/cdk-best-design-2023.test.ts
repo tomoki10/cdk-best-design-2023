@@ -1,17 +1,17 @@
-// import * as cdk from 'aws-cdk-lib';
-// import { Template } from 'aws-cdk-lib/assertions';
-// import * as CdkBestDesign2023 from '../lib/cdk-best-design-2023-stack';
+import * as cdk from "aws-cdk-lib";
+import { Template } from "aws-cdk-lib/assertions";
+import * as CdkBestDesign2023 from "../lib/stack/cdk-best-design-2023-stack";
 
-// example test. To run these tests, uncomment this file along with the
-// example resource in lib/cdk-best-design-2023-stack.ts
-test('SQS Queue Created', () => {
-//   const app = new cdk.App();
-//     // WHEN
-//   const stack = new CdkBestDesign2023.CdkBestDesign2023Stack(app, 'MyTestStack');
-//     // THEN
-//   const template = Template.fromStack(stack);
+import { devParameter } from "../bin/parameter";
 
-//   template.hasResourceProperties('AWS::SQS::Queue', {
-//     VisibilityTimeout: 300
-//   });
+test("Snapshot Test", () => {
+  const app = new cdk.App();
+  const stack = new CdkBestDesign2023.CdkBestDesign2023Stack(
+    app,
+    "CdkBestDesign2023Stack",
+    {
+      ...devParameter,
+    }
+  );
+  expect(Template.fromStack(stack)).toMatchSnapshot();
 });
