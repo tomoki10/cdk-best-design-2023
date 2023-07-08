@@ -1,14 +1,3 @@
-# Welcome to your CDK TypeScript project
+# DevelopsIO 2023 CDK Talk Sample
 
-This is a blank project for CDK development with TypeScript.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+このリポジトリは DevelopersIO 2023 の「AWS CDK の最強の書き方を実践してみる 2023 年版」で使用したサンプルコードです。
